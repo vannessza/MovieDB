@@ -89,7 +89,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         imageview_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                finish();
             }
         });
     }
