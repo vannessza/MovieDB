@@ -7,9 +7,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-public class NowPlaying implements Parcelable {
-
-    public NowPlaying(){}
+public class UpComing implements Parcelable {
 
     private int page;
     private List<Results> results;
@@ -17,27 +15,27 @@ public class NowPlaying implements Parcelable {
     private int total_pages;
     private int total_results;
 
-    protected NowPlaying(Parcel in) {
+    protected UpComing(Parcel in) {
         page = in.readInt();
         total_pages = in.readInt();
         total_results = in.readInt();
     }
 
-    public static final Creator<NowPlaying> CREATOR = new Creator<NowPlaying>() {
+    public static final Creator<UpComing> CREATOR = new Creator<UpComing>() {
         @Override
-        public NowPlaying createFromParcel(Parcel in) {
-            return new NowPlaying(in);
+        public UpComing createFromParcel(Parcel in) {
+            return new UpComing(in);
         }
 
         @Override
-        public NowPlaying[] newArray(int size) {
-            return new NowPlaying[size];
+        public UpComing[] newArray(int size) {
+            return new UpComing[size];
         }
     };
 
-    public static NowPlaying objectFromData(String str) {
+    public static UpComing objectFromData(String str) {
 
-        return new Gson().fromJson(str, NowPlaying.class);
+        return new Gson().fromJson(str, UpComing.class);
     }
 
     public int getPage() {

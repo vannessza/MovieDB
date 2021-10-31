@@ -1,7 +1,6 @@
 package com.example.moviedb.viewmodel;
 
 import android.app.Application;
-import android.graphics.Movie;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -9,8 +8,12 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.moviedb.model.Movies;
+import com.example.moviedb.model.MoviesCast;
 import com.example.moviedb.model.NowPlaying;
+import com.example.moviedb.model.UpComing;
 import com.example.moviedb.respositories.MovieRepository;
+
+import retrofit2.http.Query;
 
 public class MovieViewModel extends AndroidViewModel {
 
@@ -41,5 +44,23 @@ public class MovieViewModel extends AndroidViewModel {
     }
 
     //==End of viewmodel get now playing
+
+    private MutableLiveData<MoviesCast> resultGetMoviesCast = new MutableLiveData<>();
+    public void getMoviesCast(String movie){
+        resultGetMoviesCast = repository.getCreditsData(movie);
+    }
+    public LiveData<MoviesCast> getResultMoviesCast(){
+        return resultGetMoviesCast;
+    }
+
+    private MutableLiveData<UpComing> resultGetUpComing = new MutableLiveData<>();
+    public void getUpComing(){
+        resultGetUpComing = repository.getUpComingData();
+    }
+    public LiveData<UpComing> getResultUpComing(){
+        return resultGetUpComing;
+    }
+
+
 
 }

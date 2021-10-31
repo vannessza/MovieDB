@@ -1,28 +1,20 @@
-package com.example.moviedb.view;
+package com.example.moviedb.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.example.moviedb.R;
 import com.example.moviedb.helper.Const;
 import com.example.moviedb.model.Movies;
-import com.example.moviedb.model.NowPlaying;
 import com.example.moviedb.viewmodel.MovieViewModel;
-import com.example.moviedb.R;
-import com.example.moviedb.viewmodel.MovieViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MovieDetailsActivity extends AppCompatActivity {
     private ImageView posterpath,backdroppath, imageview_back;
@@ -31,6 +23,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private String movie_id = "",video="",poster_path="",backdrop_path="", overview="", release_date="",
             title="", leanguage="", popularity= "",vote_count="",vote_average="", original_title="";
     private MovieViewModel view_model;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,18 +45,18 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
 
         lbl_text = findViewById(R.id.lbl_movie_details);
-        posterpath = findViewById(R.id.posterpath_movie_details);
-        backdroppath = findViewById(R.id.backdrop_path_movie_details);
+        posterpath = findViewById(R.id.posterpath_movie_details_fragment);
+        backdroppath = findViewById(R.id.backdrop_path_movie_details_fragment);
         imageview_back = findViewById(R.id.imageview_back_movie_details);
-        lbl_title = findViewById(R.id.lbl_title_movie_details);
-        lbl_releasedate = findViewById(R.id.releasedate_movie_details);
-        lbl_language = findViewById(R.id.lbl_language_movie_details);
-        lbl_popularity = findViewById(R.id.lbl_popularity_movie_details);
+        lbl_title = findViewById(R.id.lbl_title_movie_details_fragment);
+        lbl_releasedate = findViewById(R.id.releasedate_movie_details_fragment);
+        lbl_language = findViewById(R.id.lbl_language_movie_details_fragment);
+        lbl_popularity = findViewById(R.id.lbl_popularity_movie_details_fragment);
         lbl_votecount = findViewById(R.id.lbl_votecount_movie_details);
-        lbl_voteaverage = findViewById(R.id.lbl_voteaverage_movie_details);
-        lbl_overview = findViewById(R.id.lbl_overview_movie_details);
-        lbl_originaltitle = findViewById(R.id.lbl_originaltitle_movie_details);
-        lbl_genre = findViewById(R.id.lbl_genre_movie_details);
+        lbl_voteaverage = findViewById(R.id.lbl_voteaverage_movie_details_fragment);
+        lbl_overview = findViewById(R.id.lbl_overview_movie_details_fragment);
+        lbl_originaltitle = findViewById(R.id.lbl_runtime_movie_details);
+        lbl_genre = findViewById(R.id.lbl_genre_movie_details_fragment);
 
         String img_path = Const.IMG_URL + poster_path;
         Glide.with(MovieDetailsActivity.this).load(img_path).into(posterpath);
@@ -93,6 +86,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private Observer<Movies> showResultMovies = new Observer<Movies>() {
         @Override

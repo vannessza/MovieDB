@@ -1,4 +1,4 @@
-package com.example.moviedb.view;
+package com.example.moviedb.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.RatingBar;
 
 import com.example.moviedb.R;
 import com.example.moviedb.adapter.NowPlayingAdapter;
